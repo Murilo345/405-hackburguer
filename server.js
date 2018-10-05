@@ -1,10 +1,21 @@
+//importações
 const express = require('express');
-const app = express();
 
+//configuração da aplicação
+const app = express();
+app.set('view engine', 'ejs');
+app.use('/css', express.static('estilo'));
+
+//endpoints
 app.get('/', (requisicao, resposta) => {
-    resposta.send('oi');
+    resposta.render('formulario');
 });
 
+app.post('/', (requisicao, resposta) => {
+    resposta.render('sucesso');
+});
+
+//listen
 app.listen(4011, () => {
     console.log('Servidor inicializado');
 });
