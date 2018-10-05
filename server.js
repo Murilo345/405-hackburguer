@@ -26,7 +26,17 @@ app.post('/', (requisicao, resposta) => {
 
         resposta.render('sucesso');
     });
-    
+});
+
+app.get('/qualquercoisa', (requisicao, resposta) => {
+    requisicao.db.collection('pedidos').find().toArray((erro, dados) => {
+        if(erro){
+            resposta.render('erro');
+            return;
+        }
+        
+        resposta.render('pedidos', {'lista': dados});
+    });
 });
 
 //listen

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('head') %>
+    <body>
+        <%- include('cabecalho') %>
+
+        <% for(let item of lista){ %>
+            <h4><%=item.pedido%></h4>
+            <p><%=item.nome%></p>
+            <p><%=item.endereco%></p>
+        <% } %>
+    </body>
+</html>
